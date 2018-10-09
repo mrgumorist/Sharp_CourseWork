@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Program
+    class VideoTehnick:Product
     {
-        static void Main(string[] args)
+      
+        public VideoTehnick()
         {
-            Menu menu = new Menu();
-
+            
         }
+
+       
 
     }
 }

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Program
+    class AudioTehnick:Product
     {
-        static void Main(string[] args)
+        public AudioTehnick()
         {
-            Menu menu = new Menu();
-
+            
         }
+
+        
 
     }
 }

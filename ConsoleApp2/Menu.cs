@@ -10,7 +10,11 @@ namespace ConsoleApp2
     {
         public Menu()
         {
-
+            Store store = new Store();
+            store.PrintStore();
+            Console.ReadKey();
+            store.AddNew();
+            store.PrintStore();
         }
     }
 }

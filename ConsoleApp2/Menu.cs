@@ -16,16 +16,21 @@ namespace ConsoleApp2
             //  store.RemoveEl();
             //  store.AddNew();
             //store.ChangeEl();
-           // store.PrintStore();
+           store.PrintStore();
             Console.WriteLine();
             //store.PrintSortedByName();
             //store.PrintSortedByPrice();
             //store.PrintAllByType();
-
+            store.SampleOfProductsByPriceXY();
             Console.ReadKey();
 
 
 
+        }
+
+        public static implicit operator Menu(MenuSingle v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

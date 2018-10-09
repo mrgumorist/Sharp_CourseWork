@@ -13,7 +13,7 @@ namespace ConsoleApp2
         public Store()
         {
             int RandSize = Randomaiser.RandomIntSize();
-            for(int id =0; id<RandSize; id++)
+            for (int id = 0; id < RandSize; id++)
             {
                 int RandType = Randomaiser.RandomTo3();
                 if (RandType == 0)
@@ -34,7 +34,7 @@ namespace ConsoleApp2
 
 
             }
-            
+
         }
         public void PrintStore()
         {
@@ -87,16 +87,16 @@ namespace ConsoleApp2
                     repeat = false;
                 }
 
-            } 
-               
-                Console.WriteLine("Enter Name Of Product");
-                string TmpName = Console.ReadLine();
-                Console.WriteLine("Enter Name Of Brand");
-                string TmpBrand = Console.ReadLine();
-                Console.WriteLine("Enter Name Of Material");
-                string TmpMaterial = Console.ReadLine();
-                Console.WriteLine("Enter Name Of Color");
-                string TmpColor = Console.ReadLine();
+            }
+
+            Console.WriteLine("Enter Name Of Product");
+            string TmpName = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Brand");
+            string TmpBrand = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Material");
+            string TmpMaterial = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Color");
+            string TmpColor = Console.ReadLine();
             int TruePrice = 5500;
             bool repeat2 = true;
             while (repeat2)
@@ -118,8 +118,8 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-                    if(TmpPrice>=1&&TmpPrice<MaxValue)
-                    TruePrice = TmpPrice;
+                    if (TmpPrice >= 1 && TmpPrice < MaxValue)
+                        TruePrice = TmpPrice;
                     Console.WriteLine("Okey");
                 }
                 Console.WriteLine("Go again? Y/N");
@@ -132,27 +132,27 @@ namespace ConsoleApp2
                 {
                     repeat2 = false;
                 }
-                
+
             }
             if (Numtype == 1)
             {
                 var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-                
+
                 Console.WriteLine("Added");
             }
             if (Numtype == 2)
             {
                 var product = new VideoTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-               
+
                 Console.WriteLine("Added");
             }
             if (Numtype == 3)
             {
                 var product = new Detail(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-              
+
                 Console.WriteLine("Added");
             }
 
@@ -163,7 +163,7 @@ namespace ConsoleApp2
             Console.WriteLine("Enter ID of product for delete");
             bool repeat = true;
             int WorkingID = -1;
-            
+
             while (repeat)
             {
                 Console.WriteLine($"ENTER NUMBER from 1 to {products.Count}");
@@ -234,7 +234,7 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-                    if (Id>=1&&Id<products.Count)
+                    if (Id >= 1 && Id < products.Count)
                     {
                         RealID = Id;
                         Console.WriteLine("Ready");
@@ -255,7 +255,7 @@ namespace ConsoleApp2
 
             }
 
-           
+
 
 
             Console.WriteLine("Enter Name Of Product");
@@ -310,8 +310,8 @@ namespace ConsoleApp2
             products[IndexOfId].Name = TmpName;
             products[IndexOfId].Price = TruePrice;
             Console.WriteLine("Added");
-            
-            
+
+
 
 
 
@@ -320,7 +320,7 @@ namespace ConsoleApp2
         public void PrintSortedByName()
         {
             List<Product> SecondList = new List<Product>();
-         
+
             SecondList = products.OrderBy(q => q.Name).ToList();
             foreach (var item in SecondList)
             {
@@ -384,18 +384,18 @@ namespace ConsoleApp2
                 }
 
             }
-            if(Numtype==1)
+            if (Numtype == 1)
             {
                 string Type = new AudioTehnick().GetType().Name;
                 foreach (var item in products)
                 {
-                    if(item.GetType().Name == Type)
+                    if (item.GetType().Name == Type)
                     {
                         Console.WriteLine(item.ToString());
                     }
                 }
             }
-            if(Numtype==2)
+            if (Numtype == 2)
             {
                 string Type = new VideoTehnick().GetType().Name;
                 foreach (var item in products)
@@ -406,7 +406,7 @@ namespace ConsoleApp2
                     }
                 }
             }
-            if(Numtype==3)
+            if (Numtype == 3)
             {
                 string Type = new Detail().GetType().Name;
                 foreach (var item in products)
@@ -420,7 +420,109 @@ namespace ConsoleApp2
             }
         }
 
+        public void SampleOfProductsByPriceXY()
+        {
+          
+            bool repeat = true;
+            int x = 0;
+            while (repeat)
+            {
+                Console.WriteLine("Enter x");
+                int NumberOftype = -1;
+                string input = Console.ReadLine();
+                try
+                {
+                    NumberOftype = Convert.ToInt32(input);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (NumberOftype >= 0 && NumberOftype < MaxValue)
+                    {
+                        x = NumberOftype;
+                        Console.WriteLine("Ready");
+                    }
 
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            Console.WriteLine();
+            repeat = true;
+            int y = 1;
+            while (repeat)
+            {
+                Console.WriteLine("Enter y");
+                int NumberOftype = -1;
+                string input = Console.ReadLine();
+                try
+                {
+                    NumberOftype = Convert.ToInt32(input);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (NumberOftype >= 0 && NumberOftype < MaxValue)
+                    {
+                        y = NumberOftype;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            
+                var SecondList = products.Where(d => d.Price >= x&&d.Price<=y).ToList();
+            foreach (var item in SecondList)
+            {
+                Console.WriteLine(item.ToString());
+            }
+            if(SecondList==null)
+            {
+                Console.WriteLine("NULL");
+            }
+                
+            
+
+
+        }
+    
+    
 
 
 

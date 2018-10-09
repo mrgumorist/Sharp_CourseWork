@@ -13,8 +13,15 @@ namespace ConsoleApp2
         {
             
         }
+        public VideoTehnick(string name, string brand, string material, string color, int price)
+        {
+            Name = name;
+            Brand = brand;
+            Material = material;
+            Color = color;
+            Price = price;
+        }
 
-       
 
     }
 }

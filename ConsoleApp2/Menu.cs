@@ -12,10 +12,13 @@ namespace ConsoleApp2
         {
             Store store = new Store();
            // store.PrintStore();
-            Console.ReadKey();
-            store.RemoveEl();
-            //store.AddNew();
+            
+          //  store.RemoveEl();
+          //  store.AddNew();
             store.PrintStore();
+            Console.ReadKey();
+
+
         }
     }
 }

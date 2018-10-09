@@ -9,7 +9,7 @@ namespace ConsoleApp2
     class Store
     {
         List<Product> products = new List<Product>();
-        
+        int MaxValue = 10000;
         public Store()
         {
             int RandSize = Randomaiser.RandomIntSize();
@@ -48,7 +48,7 @@ namespace ConsoleApp2
         {
             Console.WriteLine("Enter type of product");
             bool repeat = true;
-            int Numtype = -1;
+            int Numtype = 2;
             while (repeat)
             {
                 Console.WriteLine("Enter 1 for AudioType, 2 for Video type, 3 for detail");
@@ -71,6 +71,7 @@ namespace ConsoleApp2
                     if (NumberOftype == 1 || NumberOftype == 2 || NumberOftype == 3)
                     {
                         Numtype = NumberOftype;
+                        Console.WriteLine("Ready");
                     }
 
                     else Console.WriteLine("Incorect Type");
@@ -87,7 +88,7 @@ namespace ConsoleApp2
                 }
 
             } 
-                Console.Clear();
+               
                 Console.WriteLine("Enter Name Of Product");
                 string TmpName = Console.ReadLine();
                 Console.WriteLine("Enter Name Of Brand");
@@ -96,12 +97,12 @@ namespace ConsoleApp2
                 string TmpMaterial = Console.ReadLine();
                 Console.WriteLine("Enter Name Of Color");
                 string TmpColor = Console.ReadLine();
-            int TmpPrice = -1;
-            repeat = true;
-            while (repeat)
+            int TruePrice = 5500;
+            bool repeat2 = true;
+            while (repeat2)
             {
                 Console.WriteLine("Price ");
-              
+                int TmpPrice = -1;
                 string input = Console.ReadLine();
                 try
                 {
@@ -117,25 +118,44 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-
-
+                    if(TmpPrice>=1&&TmpPrice<MaxValue)
+                    TruePrice = TmpPrice;
                     Console.WriteLine("Okey");
                 }
                 Console.WriteLine("Go again? Y/N");
                 string go = Console.ReadLine();
                 if (go == "Y" || go == "y")
                 {
-                    repeat = true;
+                    repeat2 = true;
                 }
                 else
                 {
-                    repeat = false;
+                    repeat2 = false;
                 }
                 
             }
-            Product product = new Product(TmpName,TmpBrand,TmpMaterial,TmpColor,TmpPrice);
-            products.Add(product);
-            Console.WriteLine("Added");
+            if (Numtype == 1)
+            {
+                var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
+                products.Add(product);
+                
+                Console.WriteLine("Added");
+            }
+            if (Numtype == 2)
+            {
+                var product = new VideoTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
+                products.Add(product);
+               
+                Console.WriteLine("Added");
+            }
+            if (Numtype == 3)
+            {
+                var product = new Detail(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
+                products.Add(product);
+              
+                Console.WriteLine("Added");
+            }
+
         }
         public void RemoveEl()
         {

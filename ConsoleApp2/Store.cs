@@ -315,8 +315,27 @@ namespace ConsoleApp2
 
         }
 
+        public void PrintSortedByName()
+        {
+            List<Product> SecondList = new List<Product>();
+         
+            SecondList = products.OrderBy(q => q.Name).ToList();
+            foreach (var item in SecondList)
+            {
+                Console.WriteLine(item.ToString());
+            }
 
+        }
+        public void PrintSortedByPrice()
+        {
+            List<Product> SecondList = new List<Product>();
 
+            SecondList = products.OrderBy(q => q.Price).ToList();
+            foreach (var item in SecondList)
+            {
+                Console.WriteLine(item.ToString());
+            }
+        }
 
 
 

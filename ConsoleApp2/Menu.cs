@@ -15,9 +15,14 @@ namespace ConsoleApp2
 
             //  store.RemoveEl();
             //  store.AddNew();
-            store.ChangeEl();
+            //store.ChangeEl();
             store.PrintStore();
+            Console.WriteLine();
+            //store.PrintSortedByName();
+            //store.PrintSortedByPrice();
+
             Console.ReadKey();
+
 
 
         }

@@ -10,6 +10,7 @@ namespace ConsoleApp2
     {
         private static int maxPrice = 10000;
         private static int MaxValueSize = 30;
+        private static int Id = 0;
         private static Random random = new Random();
         private static readonly List<string> Colors = new List<string>() { "Black", "Blue", "Grey", "White", "Green", "Yellow" };
         private static readonly List<string> Brands = new List<string>() { "Amazon", "Google", "Apple", "Samsung", "AT&T", "KLOK TM" };
@@ -46,6 +47,10 @@ namespace ConsoleApp2
         public static int RandomIntSize() => random.Next(1,MaxValueSize);
         public static int RandomTo3()=> random.Next(0, 3);
 
-
+        public static int ID()
+        {
+            Id++;
+            return (Id);
+        }
     }
 }

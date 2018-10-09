@@ -9,15 +9,15 @@ namespace ConsoleApp2
     public class Product
     {
 
-     
-     
+
+
 
         virtual public string Name { get; set; }
         public string Brand { get; set; }
         public string Material { get; set; }
         public string Color { get; set; }
         public int Price { get; set; }
-
+        public int ID{get; set;}
 
 
         public Product()
@@ -27,11 +27,10 @@ namespace ConsoleApp2
             Material = Randomaiser.RandomMaterial();
             Color = Randomaiser.RandomColor();
             Price = Randomaiser.RandomPrice();
-
-
+            ID = Randomaiser.ID();
 
         }
-        public Product(string name, string brand, string material, string color, int price)
+        public Product( string name, string brand, string material, string color, int price)
         {
             Name = name;
             Brand = brand;
@@ -39,7 +38,7 @@ namespace ConsoleApp2
             Color = color;
             Price = price;
         }
-        public override string ToString()=>($"Name {Name} Material {Material} Color {Color} Price {Price} type {this.GetType().Name}" ); 
+        public override string ToString()=>($"ID {ID} Name {Name} Material {Material} Color {Color} Price {Price} type {this.GetType().Name}" ); 
         
 
       

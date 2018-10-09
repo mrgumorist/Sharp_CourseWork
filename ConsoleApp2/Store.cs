@@ -208,6 +208,132 @@ namespace ConsoleApp2
                 products.Remove(itemToRemove);
             }
         }
+        public void ChangeEl()
+        {
+            Console.WriteLine($"Enter ID from 1 to {products.Count}");
+            bool repeat = true;
+            int RealID = 2;
+            while (repeat)
+            {
+                Console.WriteLine("Enter id: ");
+                int Id = 1;
+                string input = Console.ReadLine();
+                try
+                {
+                    Id = Convert.ToInt32(input);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (Id>=1&&Id<products.Count)
+                    {
+                        RealID = Id;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+
+           
+
+
+            Console.WriteLine("Enter Name Of Product");
+            string TmpName = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Brand");
+            string TmpBrand = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Material");
+            string TmpMaterial = Console.ReadLine();
+            Console.WriteLine("Enter Name Of Color");
+            string TmpColor = Console.ReadLine();
+            int TruePrice = 5500;
+            bool repeat2 = true;
+            while (repeat2)
+            {
+                Console.WriteLine("Price ");
+                int TmpPrice = 1000;
+                string input = Console.ReadLine();
+                try
+                {
+                    TmpPrice = Convert.ToInt32(input);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (TmpPrice >= 1 && TmpPrice < MaxValue)
+                        TruePrice = TmpPrice;
+                    Console.WriteLine("Okey");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat2 = true;
+                }
+                else
+                {
+                    repeat2 = false;
+                }
+            }
+
+            int IndexOfId = FindIndex(RealID);
+            products[IndexOfId].Color = TmpColor;
+            products[IndexOfId].Brand = TmpBrand;
+            products[IndexOfId].Material = TmpMaterial;
+            products[IndexOfId].Name = TmpName;
+            products[IndexOfId].Price = TruePrice;
+            Console.WriteLine("Added");
+            
+            
+
+
+
+        }
+
+
+
+
+
+
+
+         int FindIndex(int id)
+        {
+            int ID = 0;
+            for(int i=0;i<products.Count(); i++)
+            {
+                if(products[i].ID==id)
+                {
+                    ID = i;
+                    return ID;
+                }
+            }
+            return 0;
+        }
 
     }
 }

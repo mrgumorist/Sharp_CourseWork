@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Program
+    class Menu
     {
-        static void Main(string[] args)
+        public Menu()
         {
-            Menu menu = new Menu();
 
         }
     }

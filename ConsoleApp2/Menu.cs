@@ -16,10 +16,11 @@ namespace ConsoleApp2
             //  store.RemoveEl();
             //  store.AddNew();
             //store.ChangeEl();
-            store.PrintStore();
+           // store.PrintStore();
             Console.WriteLine();
             //store.PrintSortedByName();
             //store.PrintSortedByPrice();
+            //store.PrintAllByType();
 
             Console.ReadKey();
 

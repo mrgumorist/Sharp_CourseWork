@@ -157,6 +157,7 @@ namespace ConsoleApp2
             }
 
         }
+
         public void RemoveEl()
         {
             Console.WriteLine("Enter ID of product for delete");
@@ -208,6 +209,7 @@ namespace ConsoleApp2
                 products.Remove(itemToRemove);
             }
         }
+
         public void ChangeEl()
         {
             Console.WriteLine($"Enter ID from 1 to {products.Count}");
@@ -326,6 +328,7 @@ namespace ConsoleApp2
             }
 
         }
+
         public void PrintSortedByPrice()
         {
             List<Product> SecondList = new List<Product>();
@@ -336,6 +339,87 @@ namespace ConsoleApp2
                 Console.WriteLine(item.ToString());
             }
         }
+
+        public void PrintAllByType()
+        {
+            Console.WriteLine("Enter type of product");
+            bool repeat = true;
+            int Numtype = 2;
+            while (repeat)
+            {
+                Console.WriteLine("Enter 1 for AudioType, 2 for Video type, 3 for detail");
+                int NumberOftype = -1;
+                string input = Console.ReadLine();
+                try
+                {
+                    NumberOftype = Convert.ToInt32(input);
+                }
+                catch (FormatException e)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException e)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (NumberOftype == 1 || NumberOftype == 2 || NumberOftype == 3)
+                    {
+                        Numtype = NumberOftype;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            if(Numtype==1)
+            {
+                string Type = new AudioTehnick().GetType().Name;
+                foreach (var item in products)
+                {
+                    if(item.GetType().Name == Type)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
+                }
+            }
+            if(Numtype==2)
+            {
+                string Type = new VideoTehnick().GetType().Name;
+                foreach (var item in products)
+                {
+                    if (item.GetType().Name == Type)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
+                }
+            }
+            if(Numtype==3)
+            {
+                string Type = new Detail().GetType().Name;
+                foreach (var item in products)
+                {
+                    if (item.GetType().Name == Type)
+                    {
+                        Console.WriteLine(item.ToString());
+                    }
+                }
+
+            }
+        }
+
 
 
 

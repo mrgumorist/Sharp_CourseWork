@@ -9,6 +9,8 @@ namespace ConsoleApp2
     public static class Helper
     {
         static public int MaxValue { get; set; } = 10000;
+        static public int Weiht { get; set; } = 95;
+        static public int Height { get; set; } = 40;
         static private int MaxProc=100;
         public static int ReturnNumXY()
         {
@@ -192,6 +194,15 @@ namespace ConsoleApp2
 
             }
             return TrueProc;
+        }
+
+        public static void PrintLine()
+        {
+          
+            for (int i = 0; i < Console.WindowWidth; i++)
+            {
+                Console.Write('*');
+            }
         }
     }
 }

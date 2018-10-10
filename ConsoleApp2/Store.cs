@@ -37,10 +37,16 @@ namespace ConsoleApp2
         }
         public void PrintStore()
         {
+            Console.WriteLine();
+            Helper.PrintLine();
+
             foreach (var item in products)
             {
-                Console.WriteLine(item.ToString());
+               
+                Console.WriteLine($"{item.ToString()}");
             }
+            Helper.PrintLine();
+            Console.WriteLine();
         }
 
         public void AddNew()
@@ -246,10 +252,12 @@ namespace ConsoleApp2
             List<Product> SecondList = new List<Product>();
 
             SecondList = products.OrderBy(q => q.Name).ToList();
+            Helper.PrintLine();
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
             }
+            Helper.PrintLine();
 
         }
 
@@ -258,10 +266,13 @@ namespace ConsoleApp2
             List<Product> SecondList = new List<Product>();
 
             SecondList = products.OrderBy(q => q.Price).ToList();
+            Helper.PrintLine();
+
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
             }
+            Helper.PrintLine();
         }
 
         public void PrintAllByType()
@@ -270,6 +281,7 @@ namespace ConsoleApp2
             if (Numtype == 1)
             {
                 string Type = new AudioTehnick().GetType().Name;
+                Helper.PrintLine();
                 foreach (var item in products)
                 {
                     if (item.GetType().Name == Type)
@@ -277,10 +289,12 @@ namespace ConsoleApp2
                         Console.WriteLine(item.ToString());
                     }
                 }
+                Helper.PrintLine();
             }
             if (Numtype == 2)
             {
                 string Type = new VideoTehnick().GetType().Name;
+                Helper.PrintLine();
                 foreach (var item in products)
                 {
                     if (item.GetType().Name == Type)
@@ -288,10 +302,12 @@ namespace ConsoleApp2
                         Console.WriteLine(item.ToString());
                     }
                 }
+                Helper.PrintLine();
             }
             if (Numtype == 3)
             {
                 string Type = new Detail().GetType().Name;
+                Helper.PrintLine();
                 foreach (var item in products)
                 {
                     if (item.GetType().Name == Type)
@@ -299,6 +315,7 @@ namespace ConsoleApp2
                         Console.WriteLine(item.ToString());
                     }
                 }
+                Helper.PrintLine();
 
             }
         }
@@ -311,11 +328,13 @@ namespace ConsoleApp2
             Console.WriteLine("Enter y");
             int y = Helper.ReturnNumXY();
             var SecondList = products.Where(d => d.Price >= x&&d.Price<=y).ToList();
+            Helper.PrintLine();
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
             }
-            if(SecondList==null)
+            Helper.PrintLine();
+            if (SecondList==null)
             {
                 Console.WriteLine("NULL");
             }
@@ -329,7 +348,7 @@ namespace ConsoleApp2
         {
             Console.WriteLine("Enter type of Product(Avalinle are AudioTehnick , VideoTehnick, Detail");
             string Type = Console.ReadLine();
-
+            Helper.PrintLine();
             foreach (var item in products)
             {
                 if (item.GetType().Name == Type)
@@ -338,7 +357,7 @@ namespace ConsoleApp2
 
                 }
             }
-
+            Helper.PrintLine();
 
 
 
@@ -348,7 +367,7 @@ namespace ConsoleApp2
         {
             Console.WriteLine("Enter name product for finding");
             string Name = Console.ReadLine();
-
+            Helper.PrintLine();
             foreach (var item in products)
             {
                 if (item.Name == Name)
@@ -357,7 +376,7 @@ namespace ConsoleApp2
 
                 }
             }
-
+            Helper.PrintLine();
 
 
 

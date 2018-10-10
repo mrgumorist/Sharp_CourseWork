@@ -155,11 +155,11 @@ namespace ConsoleApp2
                 {
                     Id = Convert.ToInt32(input);
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
                     Console.WriteLine("Input string is not a sequence of digits.");
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     Console.WriteLine("The number cannot fit in an Int32.");
                 }
@@ -208,11 +208,11 @@ namespace ConsoleApp2
                 {
                     TmpPrice = Convert.ToInt32(input);
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
                     Console.WriteLine("Input string is not a sequence of digits.");
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     Console.WriteLine("The number cannot fit in an Int32.");
                 }

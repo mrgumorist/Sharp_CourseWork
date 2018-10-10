@@ -205,18 +205,18 @@ namespace ConsoleApp2
             }
         }
 
-        public static HelperMenu()
+        public static int HelperMenu()
             {
             bool repeat = true;
             int ElMenu = -1;
             while (repeat)
             {
-                Console.WriteLine($"Enter proc from 1 to {Helper.MaxProc}");
+                Console.WriteLine("Enter El from 0 to 15");
                 int El = -1;
                 string input = Console.ReadLine();
                 try
                 {
-                    Price = Convert.ToInt32(input);
+                    El = Convert.ToInt32(input);
                 }
                 catch (FormatException)
                 {

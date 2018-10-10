@@ -39,9 +39,9 @@ namespace ConsoleApp2
                 Console.WriteLine("[-> For Save to file                    Enter 15 <-]");
                 Console.WriteLine("[-> For Open end read from file         Enter 16 <-]");
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                Console.ReadKey();
+
                 Console.WriteLine("Enter Element");
-                MenuEl =Helper.HelperMenu();
+                MenuEl = Helper.HelperMenu();
                 if (MenuEl==0)
                 {
                     break;
@@ -50,11 +50,64 @@ namespace ConsoleApp2
                 {
                     Console.Clear();
                 }
+                if(MenuEl==2)
+                {
+                    store.PrintStore();
+                }
+                if(MenuEl==3)
+                {
+                    store.AddNew();
+                }
+                if(MenuEl==4)
+                {
+                    store.RemoveEl();
+                }
+                if(MenuEl==5)
+                {
+                    store.ChangeEl();
+                }
+                if(MenuEl==6)
+                {
+                    store.PrintSortedByName();
+                }
+                if(MenuEl==7)
+                {
+                    store.PrintSortedByPrice();
+                }
+                if(MenuEl==8)
+                {
+                    store.PrintAllByType();
+                }
+                if(MenuEl==9)
+                {
+                    store.SampleOfProductsByPriceXY();
+                }
+                if(MenuEl==10)
+                {
+                    store.FindTypeProductAndPrint();
+                }
+                if(MenuEl==11)
+                {
+                    store.FindByNameProductAndPrint();
+                }
+                if(MenuEl==12)
+                {
+                    store.AvgPriceType();
+                }
+                if(MenuEl==13)
+                {
+                    store.ChangePricePlus();
+                }
+                if(MenuEl==14)
+                {
+                    store.ChangePriceMinus();
+                }
+
                 if(MenuEl==15)
                 {
-                    store.SaveToFile();
+                    //store.SaveToFile();
                 }
-                MenuEl = -1;
+                
             }
             
             
@@ -67,8 +120,8 @@ namespace ConsoleApp2
             //  store.RemoveEl();
             //  store.AddNew();
             //store.ChangeEl();
-            store.PrintStore();
-            Console.WriteLine();
+          //  store.PrintStore();
+            //Console.WriteLine();
             //store.PrintSortedByName();
             //store.PrintSortedByPrice();
             //store.PrintAllByType();
@@ -81,7 +134,7 @@ namespace ConsoleApp2
            // store.ChangePricePlus();
             //store.PrintStore();
            // store.ChangePriceMinus();
-            Console.ReadKey();
+           // Console.ReadKey();
         }
 
         public static MenuSingle getInstance()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class AudioTehnick:Product
+    public class AudioTehnick:Product
     {
         public AudioTehnick()
         {

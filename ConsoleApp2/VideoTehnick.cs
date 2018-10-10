@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class VideoTehnick:Product
+    public class VideoTehnick:Product
     {
       
         public VideoTehnick()

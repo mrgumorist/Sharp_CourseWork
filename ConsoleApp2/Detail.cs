@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp2
 {
-    class Detail : Product
+
+    public class Detail : Product
     {
 
         public Detail()

@@ -554,7 +554,7 @@ namespace ConsoleApp2
        public void SaveToFile()
         {
 
-            XmlSerializer formatter = new XmlSerializer(typeof(Product));
+            XmlSerializer formatter = new XmlSerializer(typeof(List<Product>));
             using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
             {
 

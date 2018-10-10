@@ -36,13 +36,13 @@ namespace ConsoleApp2
                 Console.WriteLine("[-> For find avg in firm by type        Enter 12 <-]");
                 Console.WriteLine("[-> For change price by plus proc       Enter 13 <-]");
                 Console.WriteLine("[-> For change price by minus proc      Enter 14 <-]");
-                Console.WriteLine("[-> For Save to file                    Enter 15<-]");
-                Console.WriteLine("[->  <-]");
+                Console.WriteLine("[-> For Save to file                    Enter 15 <-]");
+                Console.WriteLine("[-> For Open end read from file         Enter 16 <-]");
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.ReadKey();
                 Console.WriteLine("Enter Element");
-
-                if(MenuEl==0)
+                MenuEl = 15;
+                if (MenuEl==0)
                 {
                     break;
                 }
@@ -54,6 +54,7 @@ namespace ConsoleApp2
                 {
                     store.SaveToFile();
                 }
+                MenuEl = -1;
             }
             
             

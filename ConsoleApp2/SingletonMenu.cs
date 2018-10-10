@@ -36,7 +36,7 @@ namespace ConsoleApp2
                 Console.WriteLine("[-> For find avg in firm by type        Enter 12 <-]");
                 Console.WriteLine("[-> For change price by plus proc       Enter 13 <-]");
                 Console.WriteLine("[-> For change price by minus proc      Enter 14 <-]");
-                Console.WriteLine("[->  <-]");
+                Console.WriteLine("[-> For Save to file                    Enter 15<-]");
                 Console.WriteLine("[->  <-]");
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.ReadKey();
@@ -49,6 +49,10 @@ namespace ConsoleApp2
                 if(MenuEl==1)
                 {
                     Console.Clear();
+                }
+                if(MenuEl==15)
+                {
+                    store.SaveToFile();
                 }
             }
             

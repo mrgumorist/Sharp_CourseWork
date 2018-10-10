@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using System.Xml.Serialization;
 
 namespace ConsoleApp2
 {
+
     class Store
     {
         List<Product> products = new List<Product>();
@@ -42,7 +43,7 @@ namespace ConsoleApp2
 
             foreach (var item in products)
             {
-               
+
                 Console.WriteLine($"{item.ToString()}");
             }
             Helper.PrintLine();
@@ -61,9 +62,9 @@ namespace ConsoleApp2
             string TmpMaterial = Console.ReadLine();
             Console.WriteLine("Enter Name Of Color");
             string TmpColor = Console.ReadLine();
-            int TruePrice = Helper.ReturnTruePrice() ;
-           
-            
+            int TruePrice = Helper.ReturnTruePrice();
+
+
             if (Numtype == 1)
             {
                 var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
@@ -327,19 +328,19 @@ namespace ConsoleApp2
             int x = Helper.ReturnNumXY();
             Console.WriteLine("Enter y");
             int y = Helper.ReturnNumXY();
-            var SecondList = products.Where(d => d.Price >= x&&d.Price<=y).ToList();
+            var SecondList = products.Where(d => d.Price >= x && d.Price <= y).ToList();
             Helper.PrintLine();
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
             }
             Helper.PrintLine();
-            if (SecondList==null)
+            if (SecondList == null)
             {
                 Console.WriteLine("NULL");
             }
-                
-            
+
+
 
 
         }
@@ -390,7 +391,7 @@ namespace ConsoleApp2
             int AudioTehnickCount = 0;
             int VideoTehnickCount = 0;
             int DetailCount = 0;
-           
+
             foreach (var item in products)
             {
                 if (item.GetType().Name == new AudioTehnick().GetType().Name)
@@ -398,7 +399,7 @@ namespace ConsoleApp2
                     AllPriceAudioTehnick += item.Price;
                     AudioTehnickCount++;
                 }
-                if (item.GetType().Name ==new VideoTehnick().GetType().Name)
+                if (item.GetType().Name == new VideoTehnick().GetType().Name)
                 {
                     AllPriceVideoTehnick += item.Price;
                     VideoTehnickCount++;
@@ -408,9 +409,9 @@ namespace ConsoleApp2
                 DetailCount++;
 
             }
-            int AvgAudioTehnick = AllPriceAudioTehnick/ AudioTehnickCount;
-            int AvgVideoTehnick = AllPriceVideoTehnick/ VideoTehnickCount;
-            int AvgDetail = AllPriceDetail/ DetailCount;
+            int AvgAudioTehnick = AllPriceAudioTehnick / AudioTehnickCount;
+            int AvgVideoTehnick = AllPriceVideoTehnick / VideoTehnickCount;
+            int AvgDetail = AllPriceDetail / DetailCount;
             Console.WriteLine($"Type: AudioTehnick Average Price:{AvgAudioTehnick}");
             Console.WriteLine($"Type: VideoTehnick Average Price:{AvgVideoTehnick}");
             Console.WriteLine($"Type: Detail Average Price:{AvgDetail}");
@@ -419,7 +420,7 @@ namespace ConsoleApp2
 
         public void ChangePricePlus()
         {
-          
+
             Console.WriteLine($"Enter ID from 1 to {products.Count}");
             bool repeat = true;
             int RealID = 2;
@@ -442,7 +443,7 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-                    if (Id >= 1 && Id < products.Count+1)
+                    if (Id >= 1 && Id < products.Count + 1)
                     {
                         RealID = Id;
                         Console.WriteLine("Ready");
@@ -466,7 +467,7 @@ namespace ConsoleApp2
             int Proc = Helper.ReturnProc();
             foreach (var item in products)
             {
-                if(item.ID== RealID)
+                if (item.ID == RealID)
                 {
                     item.ChangePricePlus(Proc);
                     break;
@@ -539,9 +540,9 @@ namespace ConsoleApp2
         int FindIndex(int id)
         {
             int ID = 0;
-            for(int i=0;i<products.Count(); i++)
+            for (int i = 0; i < products.Count(); i++)
             {
-                if(products[i].ID==id)
+                if (products[i].ID == id)
                 {
                     ID = i;
                     return ID;
@@ -550,5 +551,21 @@ namespace ConsoleApp2
             return 0;
         }
 
+       public void SaveToFile()
+        {
+
+            XmlSerializer formatter = new XmlSerializer(typeof(Product));
+            using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
+            {
+
+                formatter.Serialize(fs, products);
+
+
+                Console.WriteLine("Объект сериализован");
+            }
+
+
+
+        }
     }
 }

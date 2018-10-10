@@ -8,9 +8,8 @@ using System.Xml.Serialization;
 
 namespace ConsoleApp2
 {
-    [Serializable]
-       
-    public abstract class Product
+    [Serializable]    
+    public class Product
     {
 
 

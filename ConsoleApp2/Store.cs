@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.IO;
 using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
 
 namespace ConsoleApp2
 {
-
     class Store
     {
+
         List<Product> products = new List<Product>();
         public Store()
         {
@@ -410,9 +411,22 @@ namespace ConsoleApp2
                 DetailCount++;
 
             }
-            int AvgAudioTehnick = AllPriceAudioTehnick / AudioTehnickCount;
-            int AvgVideoTehnick = AllPriceVideoTehnick / VideoTehnickCount;
-            int AvgDetail = AllPriceDetail / DetailCount;
+            int AvgAudioTehnick =0; 
+            if(AudioTehnickCount!=0)
+            {
+                AvgAudioTehnick=AllPriceAudioTehnick / AudioTehnickCount;
+            }           
+
+            int AvgVideoTehnick =0;
+            if(VideoTehnickCount!=0)
+               {
+            AvgVideoTehnick=AllPriceVideoTehnick / VideoTehnickCount;
+            }
+            int AvgDetail =0; 
+            if(DetailCount!=0)
+                {
+                AvgDetail=AllPriceDetail / DetailCount;
+                }
             Console.WriteLine($"Type: AudioTehnick Average Price:{AvgAudioTehnick}");
             Console.WriteLine($"Type: VideoTehnick Average Price:{AvgVideoTehnick}");
             Console.WriteLine($"Type: Detail Average Price:{AvgDetail}");
@@ -552,22 +566,16 @@ namespace ConsoleApp2
             return 0;
         }
 
-      /* public void SaveToFile()
+       public void SaveToFile()
         {
-
-            XmlSerializer formatter = new XmlSerializer(typeof(List<Product>));
-            using (FileStream fs = new FileStream("File.xml", FileMode.OpenOrCreate))
-            {
-
-                formatter.Serialize(fs, products);
-
-
-                Console.WriteLine("Объект сериализован");
-            }
+          
+                
+       }
+           
 
 
 
-        }*/
+        
 
 
     }

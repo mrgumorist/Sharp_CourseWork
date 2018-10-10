@@ -105,7 +105,7 @@ namespace ConsoleApp2
 
                 if(MenuEl==15)
                 {
-                    //store.SaveToFile();
+                    store.SaveToFile();
                 }
                 
             }

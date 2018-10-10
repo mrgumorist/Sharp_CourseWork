@@ -41,7 +41,7 @@ namespace ConsoleApp2
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.ReadKey();
                 Console.WriteLine("Enter Element");
-                MenuEl = 15;
+                MenuEl =Helper.HelperMenu();
                 if (MenuEl==0)
                 {
                     break;

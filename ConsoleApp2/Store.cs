@@ -36,6 +36,7 @@ namespace ConsoleApp2
             }
 
         }
+
         public void PrintStore()
         {
             Console.WriteLine();
@@ -551,7 +552,7 @@ namespace ConsoleApp2
             return 0;
         }
 
-       public void SaveToFile()
+      /* public void SaveToFile()
         {
 
             XmlSerializer formatter = new XmlSerializer(typeof(List<Product>));
@@ -566,7 +567,7 @@ namespace ConsoleApp2
 
 
 
-        }
+        }*/
 
 
     }

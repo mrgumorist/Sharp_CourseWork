@@ -204,5 +204,52 @@ namespace ConsoleApp2
                 Console.Write('*');
             }
         }
+
+        public static HelperMenu()
+            {
+            bool repeat = true;
+            int ElMenu = -1;
+            while (repeat)
+            {
+                Console.WriteLine($"Enter proc from 1 to {Helper.MaxProc}");
+                int El = -1;
+                string input = Console.ReadLine();
+                try
+                {
+                    Price = Convert.ToInt32(input);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (El > -1 || El <16)
+                    {
+                        ElMenu = El;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect number");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            return ElMenu;
+        }
+         
     }
 }

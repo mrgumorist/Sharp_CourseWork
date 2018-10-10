@@ -14,7 +14,21 @@ namespace ConsoleApp2
 
         protected MenuSingle()
         {
-            Menu menu = new Menu();
+            Store store = new Store();
+            // store.PrintStore();
+
+            //  store.RemoveEl();
+            //  store.AddNew();
+            //store.ChangeEl();
+            store.PrintStore();
+            Console.WriteLine();
+            //store.PrintSortedByName();
+            //store.PrintSortedByPrice();
+            //store.PrintAllByType();
+            // store.SampleOfProductsByPriceXY();
+            //store.FindTypeProductAndPrint();
+            store.FindByNameProductAndPrint();
+            Console.ReadKey();
         }
 
         public static MenuSingle getInstance()

@@ -45,7 +45,7 @@
   <ItemGroup>
     <Compile Include="AudioTehnick.cs" />
     <Compile Include="Detail.cs" />
-    <Compile Include="Menu.cs" />
+    <Compile Include="Helper.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

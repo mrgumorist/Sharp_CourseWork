@@ -9,7 +9,6 @@ namespace ConsoleApp2
     class Store
     {
         List<Product> products = new List<Product>();
-        int MaxValue = 10000;
         public Store()
         {
             int RandSize = Randomaiser.RandomIntSize();
@@ -46,48 +45,7 @@ namespace ConsoleApp2
 
         public void AddNew()
         {
-            Console.WriteLine("Enter type of product");
-            bool repeat = true;
-            int Numtype = 2;
-            while (repeat)
-            {
-                Console.WriteLine("Enter 1 for AudioType, 2 for Video type, 3 for detail");
-                int NumberOftype = -1;
-                string input = Console.ReadLine();
-                try
-                {
-                    NumberOftype = Convert.ToInt32(input);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Input string is not a sequence of digits.");
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("The number cannot fit in an Int32.");
-                }
-                finally
-                {
-                    if (NumberOftype == 1 || NumberOftype == 2 || NumberOftype == 3)
-                    {
-                        Numtype = NumberOftype;
-                        Console.WriteLine("Ready");
-                    }
-
-                    else Console.WriteLine("Incorect Type");
-                }
-                Console.WriteLine("Go again? Y/N");
-                string go = Console.ReadLine();
-                if (go == "Y" || go == "y")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    repeat = false;
-                }
-
-            }
+            int Numtype = Helper.ReturnNumType();
 
             Console.WriteLine("Enter Name Of Product");
             string TmpName = Console.ReadLine();
@@ -97,43 +55,9 @@ namespace ConsoleApp2
             string TmpMaterial = Console.ReadLine();
             Console.WriteLine("Enter Name Of Color");
             string TmpColor = Console.ReadLine();
-            int TruePrice = 5500;
-            bool repeat2 = true;
-            while (repeat2)
-            {
-                Console.WriteLine("Price ");
-                int TmpPrice = -1;
-                string input = Console.ReadLine();
-                try
-                {
-                    TmpPrice = Convert.ToInt32(input);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Input string is not a sequence of digits.");
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("The number cannot fit in an Int32.");
-                }
-                finally
-                {
-                    if (TmpPrice >= 1 && TmpPrice < MaxValue)
-                        TruePrice = TmpPrice;
-                    Console.WriteLine("Okey");
-                }
-                Console.WriteLine("Go again? Y/N");
-                string go = Console.ReadLine();
-                if (go == "Y" || go == "y")
-                {
-                    repeat2 = true;
-                }
-                else
-                {
-                    repeat2 = false;
-                }
-
-            }
+            int TruePrice = Helper.ReturnTruePrice() ;
+           
+            
             if (Numtype == 1)
             {
                 var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
@@ -287,7 +211,7 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-                    if (TmpPrice >= 1 && TmpPrice < MaxValue)
+                    if (TmpPrice >= 1 && TmpPrice < Helper.MaxValue)
                         TruePrice = TmpPrice;
                     Console.WriteLine("Okey");
                 }
@@ -342,48 +266,7 @@ namespace ConsoleApp2
 
         public void PrintAllByType()
         {
-            Console.WriteLine("Enter type of product");
-            bool repeat = true;
-            int Numtype = 2;
-            while (repeat)
-            {
-                Console.WriteLine("Enter 1 for AudioType, 2 for Video type, 3 for detail");
-                int NumberOftype = -1;
-                string input = Console.ReadLine();
-                try
-                {
-                    NumberOftype = Convert.ToInt32(input);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Input string is not a sequence of digits.");
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("The number cannot fit in an Int32.");
-                }
-                finally
-                {
-                    if (NumberOftype == 1 || NumberOftype == 2 || NumberOftype == 3)
-                    {
-                        Numtype = NumberOftype;
-                        Console.WriteLine("Ready");
-                    }
-
-                    else Console.WriteLine("Incorect Type");
-                }
-                Console.WriteLine("Go again? Y/N");
-                string go = Console.ReadLine();
-                if (go == "Y" || go == "y")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    repeat = false;
-                }
-
-            }
+            int Numtype = Helper.ReturnNumType();
             if (Numtype == 1)
             {
                 string Type = new AudioTehnick().GetType().Name;
@@ -422,92 +305,12 @@ namespace ConsoleApp2
 
         public void SampleOfProductsByPriceXY()
         {
-          
-            bool repeat = true;
-            int x = 0;
-            while (repeat)
-            {
-                Console.WriteLine("Enter x");
-                int NumberOftype = -1;
-                string input = Console.ReadLine();
-                try
-                {
-                    NumberOftype = Convert.ToInt32(input);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Input string is not a sequence of digits.");
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("The number cannot fit in an Int32.");
-                }
-                finally
-                {
-                    if (NumberOftype >= 0 && NumberOftype < MaxValue)
-                    {
-                        x = NumberOftype;
-                        Console.WriteLine("Ready");
-                    }
 
-                    else Console.WriteLine("Incorect Type");
-                }
-                Console.WriteLine("Go again? Y/N");
-                string go = Console.ReadLine();
-                if (go == "Y" || go == "y")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    repeat = false;
-                }
-
-            }
-            Console.WriteLine();
-            repeat = true;
-            int y = 1;
-            while (repeat)
-            {
-                Console.WriteLine("Enter y");
-                int NumberOftype = -1;
-                string input = Console.ReadLine();
-                try
-                {
-                    NumberOftype = Convert.ToInt32(input);
-                }
-                catch (FormatException e)
-                {
-                    Console.WriteLine("Input string is not a sequence of digits.");
-                }
-                catch (OverflowException e)
-                {
-                    Console.WriteLine("The number cannot fit in an Int32.");
-                }
-                finally
-                {
-                    if (NumberOftype >= 0 && NumberOftype < MaxValue)
-                    {
-                        y = NumberOftype;
-                        Console.WriteLine("Ready");
-                    }
-
-                    else Console.WriteLine("Incorect Type");
-                }
-                Console.WriteLine("Go again? Y/N");
-                string go = Console.ReadLine();
-                if (go == "Y" || go == "y")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    repeat = false;
-                }
-
-            }
-            
-                var SecondList = products.Where(d => d.Price >= x&&d.Price<=y).ToList();
+            Console.WriteLine("Enter x");
+            int x = Helper.ReturnNumXY();
+            Console.WriteLine("Enter y");
+            int y = Helper.ReturnNumXY();
+            var SecondList = products.Where(d => d.Price >= x&&d.Price<=y).ToList();
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
@@ -521,12 +324,46 @@ namespace ConsoleApp2
 
 
         }
-    
-    
+
+        public void FindTypeProductAndPrint()
+        {
+            Console.WriteLine("Enter type of Product(Avalinle are AudioTehnick , VideoTehnick, Detail");
+            string Type = Console.ReadLine();
+
+            foreach (var item in products)
+            {
+                if (item.GetType().Name == Type)
+                {
+                    Console.WriteLine(item.ToString());
+
+                }
+            }
 
 
 
-         int FindIndex(int id)
+
+        }
+        public void FindByNameProductAndPrint()
+        {
+            Console.WriteLine("Enter name product for finding");
+            string Name = Console.ReadLine();
+
+            foreach (var item in products)
+            {
+                if (item.Name == Name)
+                {
+                    Console.WriteLine(item.ToString());
+
+                }
+            }
+
+
+
+
+        }
+
+
+        int FindIndex(int id)
         {
             int ID = 0;
             for(int i=0;i<products.Count(); i++)

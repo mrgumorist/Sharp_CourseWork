@@ -39,9 +39,21 @@ namespace ConsoleApp2
             Price = price;
         }
         public override string ToString()=>($"ID {ID} Name {Name} Material {Material} Color {Color} Price {Price} type {this.GetType().Name}" ); 
-        
+        public void ChangePricePlus(int proc)
+        {
+            int TempPrice = Price;
+            TempPrice = TempPrice / 100;
+            TempPrice = TempPrice * (100+proc);
+            Price = TempPrice;
+        }
+        public void ChangePriceMinus(int proc)
+        {
+            int TempPrice = Price;
+            TempPrice = TempPrice / 100;
+            TempPrice = TempPrice * (100 - proc);
+            Price = TempPrice;
+        }
 
-      
 
 
     }

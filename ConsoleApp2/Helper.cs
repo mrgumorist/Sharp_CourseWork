@@ -9,6 +9,7 @@ namespace ConsoleApp2
     public static class Helper
     {
         static public int MaxValue { get; set; } = 10000;
+        static private int MaxProc=100;
         public static int ReturnNumXY()
         {
 
@@ -102,12 +103,12 @@ namespace ConsoleApp2
 
         public static int ReturnTruePrice()
         {
-            Console.WriteLine("Enter type of product");
+           
             bool repeat = true;
-            int TruePrice = 2;
+            int TruePrice = 500;
             while (repeat)
             {
-                Console.WriteLine("Enter 1 for AudioType, 2 for Video type, 3 for detail");
+                Console.WriteLine("Enter price");
                 int Price = -1;
                 string input = Console.ReadLine();
                 try
@@ -145,6 +146,52 @@ namespace ConsoleApp2
 
             }
             return TruePrice;
+        }
+
+        public static int ReturnProc()
+        {
+            bool repeat = true;
+            int TrueProc = 5;
+            while (repeat)
+            {
+                Console.WriteLine($"Enter proc from 1 to {Helper.MaxProc}");
+                int Price = -1;
+                string input = Console.ReadLine();
+                try
+                {
+                    Price = Convert.ToInt32(input);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (Price > 0 || Price < Helper.MaxProc+1)
+                    {
+                        TrueProc = Price;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect number");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            return TrueProc;
         }
     }
 }

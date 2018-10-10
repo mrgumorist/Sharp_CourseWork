@@ -97,11 +97,11 @@ namespace ConsoleApp2
                 {
                     ID = Convert.ToInt32(input);
                 }
-                catch (FormatException e)
+                catch (FormatException)
                 {
                     Console.WriteLine("Input string is not a sequence of digits.");
                 }
-                catch (OverflowException e)
+                catch (OverflowException)
                 {
                     Console.WriteLine("The number cannot fit in an Int32.");
                 }
@@ -398,7 +398,124 @@ namespace ConsoleApp2
 
         }
 
+        public void ChangePricePlus()
+        {
+          
+            Console.WriteLine($"Enter ID from 1 to {products.Count}");
+            bool repeat = true;
+            int RealID = 2;
+            while (repeat)
+            {
+                Console.WriteLine("Enter id: ");
+                int Id = 1;
+                string input = Console.ReadLine();
+                try
+                {
+                    Id = Convert.ToInt32(input);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (Id >= 1 && Id < products.Count+1)
+                    {
+                        RealID = Id;
+                        Console.WriteLine("Ready");
+                    }
 
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            Console.WriteLine("Enter proc for plus price");
+            int Proc = Helper.ReturnProc();
+            foreach (var item in products)
+            {
+                if(item.ID== RealID)
+                {
+                    item.ChangePricePlus(Proc);
+                    break;
+                }
+            }
+
+
+
+
+
+        }
+
+        public void ChangePriceMinus()
+        {
+            Console.WriteLine($"Enter ID from 1 to {products.Count}");
+            bool repeat = true;
+            int RealID = 2;
+            while (repeat)
+            {
+                Console.WriteLine("Enter id: ");
+                int Id = 1;
+                string input = Console.ReadLine();
+                try
+                {
+                    Id = Convert.ToInt32(input);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Input string is not a sequence of digits.");
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("The number cannot fit in an Int32.");
+                }
+                finally
+                {
+                    if (Id >= 1 && Id < products.Count + 1)
+                    {
+                        RealID = Id;
+                        Console.WriteLine("Ready");
+                    }
+
+                    else Console.WriteLine("Incorect Type");
+                }
+                Console.WriteLine("Go again? Y/N");
+                string go = Console.ReadLine();
+                if (go == "Y" || go == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    repeat = false;
+                }
+
+            }
+            Console.WriteLine("Enter proc for plus price");
+            int Proc = Helper.ReturnProc();
+            foreach (var item in products)
+            {
+                if (item.ID == RealID)
+                {
+                    item.ChangePriceMinus(Proc);
+                    break;
+                }
+            }
+
+        }
 
         int FindIndex(int id)
         {

@@ -27,7 +27,10 @@ namespace ConsoleApp2
             //store.PrintAllByType();
             // store.SampleOfProductsByPriceXY();
             //store.FindTypeProductAndPrint();
-            store.FindByNameProductAndPrint();
+
+            //store.FindByNameProductAndPrint();
+            store.AvgPriceType();
+
             Console.ReadKey();
         }
 

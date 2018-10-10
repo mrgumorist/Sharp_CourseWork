@@ -343,6 +343,7 @@ namespace ConsoleApp2
 
 
         }
+
         public void FindByNameProductAndPrint()
         {
             Console.WriteLine("Enter name product for finding");
@@ -361,6 +362,42 @@ namespace ConsoleApp2
 
 
         }
+
+        public void AvgPriceType()
+        {
+            int AllPriceAudioTehnick = 0;
+            int AllPriceVideoTehnick = 0;
+            int AllPriceDetail = 0;
+            int AudioTehnickCount = 0;
+            int VideoTehnickCount = 0;
+            int DetailCount = 0;
+           
+            foreach (var item in products)
+            {
+                if (item.GetType().Name == new AudioTehnick().GetType().Name)
+                {
+                    AllPriceAudioTehnick += item.Price;
+                    AudioTehnickCount++;
+                }
+                if (item.GetType().Name ==new VideoTehnick().GetType().Name)
+                {
+                    AllPriceVideoTehnick += item.Price;
+                    VideoTehnickCount++;
+                }
+                else
+                    AllPriceDetail += item.Price;
+                DetailCount++;
+
+            }
+            int AvgAudioTehnick = AllPriceAudioTehnick/ AudioTehnickCount;
+            int AvgVideoTehnick = AllPriceVideoTehnick/ VideoTehnickCount;
+            int AvgDetail = AllPriceDetail/ DetailCount;
+            Console.WriteLine($"Type: AudioTehnick Average Price:{AvgAudioTehnick}");
+            Console.WriteLine($"Type: VideoTehnick Average Price:{AvgVideoTehnick}");
+            Console.WriteLine($"Type: Detail Average Price:{AvgDetail}");
+
+        }
+
 
 
         int FindIndex(int id)

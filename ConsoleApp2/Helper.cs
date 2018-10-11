@@ -211,7 +211,7 @@ namespace ConsoleApp2
             int ElMenu = -1;
             while (repeat)
             {
-                Console.WriteLine("Enter El from 0 to 15");
+                Console.WriteLine("Enter El from 0 to 16");
                 int El = -1;
                 string input = Console.ReadLine();
                 try
@@ -228,7 +228,7 @@ namespace ConsoleApp2
                 }
                 finally
                 {
-                    if (El > -1 || El <16)
+                    if (El > -1 || El <17)
                     {
                         ElMenu = El;
                         Console.WriteLine("Ready");

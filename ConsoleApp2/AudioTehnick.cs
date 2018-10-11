@@ -20,6 +20,15 @@ namespace ConsoleApp2
             Color = color;
             Price = price;
         }
+        public AudioTehnick (int id, string brand, string color, string material, string name, int price)
+        {
+            ID = id;
+            Name = name;
+            Brand = brand;
+            Material = material;
+            Color = color;
+            Price = price;
+        }
 
 
     }

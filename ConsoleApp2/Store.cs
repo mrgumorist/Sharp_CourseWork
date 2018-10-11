@@ -568,14 +568,114 @@ namespace ConsoleApp2
 
        public void SaveToFile()
         {
-          
-                
-       }
-           
+
+            string Audio = "Audio";
+            string Video = "Video";
+            string Detaiil = "Detail";
+            BinaryWriter binaryWriter;
+            try
+            {
+                binaryWriter = new BinaryWriter(new FileStream("Users.txt", FileMode.Create));
+            }
+            catch (IOException e)
+            {
+                Console.WriteLine(e.Message);
+                return;
+            }
+            try
+            {
+                for (int i = 0; i < products.Count; i++)
+                {
+                    if (products[i] is VideoTehnick)
+                    {
+                        binaryWriter.Write(Video);
+                        binaryWriter.Write((products[i] as VideoTehnick).ID);
+                        binaryWriter.Write((products[i] as VideoTehnick).Brand);
+                        binaryWriter.Write((products[i] as VideoTehnick).Color);
+                        binaryWriter.Write((products[i] as VideoTehnick).Material);
+                        binaryWriter.Write((products[i] as VideoTehnick).Name);
+                        binaryWriter.Write((products[i] as VideoTehnick).Price);
 
 
 
-        
+
+                    }
+                    if (products[i] is AudioTehnick)
+                    {
+                        binaryWriter.Write(Audio);
+                        binaryWriter.Write((products[i] as AudioTehnick).ID);
+                        binaryWriter.Write((products[i] as AudioTehnick).Brand);
+                        binaryWriter.Write((products[i] as AudioTehnick).Color);
+                        binaryWriter.Write((products[i] as AudioTehnick).Material);
+                        binaryWriter.Write((products[i] as AudioTehnick).Name);
+                        binaryWriter.Write((products[i] as AudioTehnick).Price);
+                    }
+                    if (products[i] is Detail)
+                    {
+                        binaryWriter.Write(Detaiil);
+                        binaryWriter.Write((products[i] as Detail).ID);
+                        binaryWriter.Write((products[i] as Detail).Brand);
+                        binaryWriter.Write((products[i] as Detail).Color);
+                        binaryWriter.Write((products[i] as Detail).Material);
+                        binaryWriter.Write((products[i] as Detail).Name);
+                        binaryWriter.Write((products[i] as Detail).Price);
+
+                    }
+
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
+
+        public void LoadFromFile()
+        {
+            try
+            {
+                using (BinaryReader b = new BinaryReader(File.Open("Users.txt", FileMode.Open)))
+                {
+
+                    while (b.BaseStream.Position != b.BaseStream.Length)
+                    {
+                        string UserChoise = b.ReadString();
+                        int ID = b.ReadInt32();
+                        string Brand = b.ReadString();
+                        string Color = b.ReadString();
+                        string Material = b.ReadString();
+                        string Name = b.ReadString();
+                        int Price = b.ReadInt32();
+
+                        if (UserChoise == "Audio")
+                        {
+                            products.Add(new AudioTehnick(ID, Brand,Color,Material,Name,Price));
+
+                        }
+                        if(UserChoise== "Video")
+                        {
+                            products.Add(new VideoTehnick(ID, Brand, Color, Material, Name, Price));
+
+                        }
+                        if (UserChoise == "Detail")
+                        {
+                            products.Add(new Detail(ID, Brand, Color, Material, Name, Price));
+
+                        }
+
+
+
+                    }
+                }
+            }
+            catch (IOException E)
+            {
+                Console.WriteLine(E.Message);
+            }
+        }
+
+
+
 
 
     }

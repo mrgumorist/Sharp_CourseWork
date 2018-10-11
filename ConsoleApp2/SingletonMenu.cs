@@ -107,6 +107,10 @@ namespace ConsoleApp2
                 {
                     store.SaveToFile();
                 }
+                if(MenuEl==16)
+                {
+                    store.LoadFromFile();
+                }
                 
             }
             

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 namespace ConsoleApp2
 {
     [Serializable]    
-    public class Product
+    public class Product: IProduct
     {
 
 

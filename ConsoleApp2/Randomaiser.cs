@@ -45,7 +45,7 @@ namespace ConsoleApp2
 
         public static int RandomPrice() => random.Next(0, maxPrice);
         public static int RandomIntSize() => random.Next(1,MaxValueSize);
-        public static int RandomTo3()=> random.Next(0, 3);
+        public static int RandomTo3()=> random.Next(3);
 
         public static int ID()
         {

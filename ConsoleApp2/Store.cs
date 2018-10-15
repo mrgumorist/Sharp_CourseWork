@@ -11,31 +11,53 @@ namespace ConsoleApp2
     {
 
         List<Product> products = new List<Product>();
+        protected delegate void Message();
         public Store()
         {
+            //Message mes ;
             int RandSize = Randomaiser.RandomIntSize();
             for (int id = 0; id < RandSize; id++)
             {
+                
                 int RandType = Randomaiser.RandomTo3();
                 if (RandType == 0)
                 {
                     var temp = new AudioTehnick();
                     products.Add(temp);
+                   // mes = AudioMess;
                 }
                 if (RandType == 1)
                 {
                     var temp = new VideoTehnick();
                     products.Add(temp);
+                   // mes = VideoMess;
                 }
                 if (RandType == 2)
                 {
                     var temp = new Detail();
                     products.Add(temp);
+                 //   mes = DetailMess;
                 }
-
-
+               // else mes = NULLMess;
+                //mes();
             }
 
+        }
+        private static void NULLMess()
+        {
+            Console.WriteLine("Unknown");
+        }
+        private static void AudioMess()
+        {
+            Console.WriteLine("DELEGATE MESSAGE: AudioMess added in list");
+        }
+        private static void VideoMess()
+        {
+            Console.WriteLine("DELEGATE MESSAGE: VideoMess added in list");
+        }
+        private static void DetailMess()
+        {
+            Console.WriteLine("DELEGATE MESSAGE: DetailMess added in list");
         }
 
         public void PrintStore()
@@ -54,6 +76,7 @@ namespace ConsoleApp2
 
         public void AddNew()
         {
+            Message mes;
             int Numtype = Helper.ReturnNumType();
 
             Console.WriteLine("Enter Name Of Product");
@@ -71,25 +94,42 @@ namespace ConsoleApp2
             {
                 var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-
-                Console.WriteLine("Added");
+                mes = AddType1Delegate;
             }
             if (Numtype == 2)
             {
                 var product = new VideoTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-
+                mes = AddType2Delegate;
                 Console.WriteLine("Added");
             }
             if (Numtype == 3)
             {
                 var product = new Detail(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
                 products.Add(product);
-
+                mes = AddType3Delegate;
                 Console.WriteLine("Added");
             }
 
         }
+        protected static void AddType1Delegate()
+        {
+
+            Console.WriteLine("Delegate message: Added el by VideoTehnick type");
+        }
+        protected static void AddType2Delegate()
+        {
+
+
+            Console.WriteLine("Delegate message: Added el by Detail type");
+        }
+        protected static void AddType3Delegate()
+        {
+
+
+            Console.WriteLine("Delegate message: Added el by AudioTehnick type");
+        }
+
 
         public void RemoveEl()
         {

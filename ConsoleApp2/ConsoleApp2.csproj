@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AudioTehnick.cs" />
-    <Compile Include="Class of Events.cs" />
     <Compile Include="Detail.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="IProduct.cs" />

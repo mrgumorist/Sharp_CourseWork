@@ -11,18 +11,12 @@ namespace ConsoleApp2
     [Serializable]    
     public class Product: IProduct
     {
-
-
-
-
         virtual public string Name { get; set; }
         public string Brand { get; set; }
         public string Material { get; set; }
         public string Color { get; set; }
         public int Price { get; set; }
         public int ID{get; set;}
-
-
         public Product()
         {
             Name = Randomaiser.RandomName(this.GetType().Name);
@@ -31,7 +25,6 @@ namespace ConsoleApp2
             Color = Randomaiser.RandomColor();
             Price = Randomaiser.RandomPrice();
             ID = Randomaiser.ID();
-
         }
         public Product( string name, string brand, string material, string color, int price)
         {

@@ -48,12 +48,10 @@ namespace ConsoleApp2
 
             }
             return number;
-
         }
 
         public static int ReturnNumType()
         {
-
             Console.WriteLine("Enter type of product");
             bool repeat = true;
             int Numtype = 2;
@@ -97,10 +95,6 @@ namespace ConsoleApp2
 
             }
             return Numtype;
-
-
-
-
         }
 
         public static int ReturnTruePrice()
@@ -145,7 +139,6 @@ namespace ConsoleApp2
                 {
                     repeat = false;
                 }
-
             }
             return TruePrice;
         }
@@ -191,14 +184,12 @@ namespace ConsoleApp2
                 {
                     repeat = false;
                 }
-
             }
             return TrueProc;
         }
 
         public static void PrintLine()
         {
-          
             for (int i = 0; i < Console.WindowWidth; i++)
             {
                 Console.Write('*');

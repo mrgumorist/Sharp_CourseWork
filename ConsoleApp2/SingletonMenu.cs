@@ -14,10 +14,14 @@ namespace ConsoleApp2
 
         protected MenuSingle()
         {
-            
+
+            Console.WriteLine("Enter eny key for start");
+            Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine("Creating Store is sussesfull");
             Store store = new Store();
             int MenuEl = -1;
-            while(MenuEl!=0)
+            while (MenuEl!=0)
             {
                 Console.WriteLine("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
                 Console.WriteLine("[->     HELLO! I AM MENU HELPER IN YOUR FIRM     <-]");
@@ -111,36 +115,8 @@ namespace ConsoleApp2
                 {
                     store.LoadFromFile();
                 }
-                
             }
-            
-            
-            
-            
-            
-            
-            // store.PrintStore();
-
-            //  store.RemoveEl();
-            //  store.AddNew();
-            //store.ChangeEl();
-          //  store.PrintStore();
-            //Console.WriteLine();
-            //store.PrintSortedByName();
-            //store.PrintSortedByPrice();
-            //store.PrintAllByType();
-            // store.SampleOfProductsByPriceXY();
-            //store.FindTypeProductAndPrint();
-
-            //store.FindByNameProductAndPrint();
-            //store.AvgPriceType();
-       
-           // store.ChangePricePlus();
-            //store.PrintStore();
-           // store.ChangePriceMinus();
-           // Console.ReadKey();
         }
-
         public static MenuSingle getInstance()
         {
             if (instance == null)

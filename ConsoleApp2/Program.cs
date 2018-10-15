@@ -10,7 +10,6 @@ namespace ConsoleApp2
     {
         static void Main(string[] args)
         {
-
             Console.SetWindowSize(Helper.Weiht,Helper.Height);
             MenuSingle.getInstance();
 

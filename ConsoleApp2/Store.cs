@@ -38,10 +38,8 @@ namespace ConsoleApp2
                     products.Add(temp);
                     Event = DetailMess;
                 }
-
                 Event();
             }
-
         }
         private static void NULLMess()
         {
@@ -73,7 +71,6 @@ namespace ConsoleApp2
             Helper.PrintLine();
             Console.WriteLine();
         }
-
         public void AddNew()
         {
             Message mes;
@@ -88,8 +85,6 @@ namespace ConsoleApp2
             Console.WriteLine("Enter Name Of Color");
             string TmpColor = Console.ReadLine();
             int TruePrice = Helper.ReturnTruePrice();
-
-
             if (Numtype == 1)
             {
                
@@ -109,27 +104,19 @@ namespace ConsoleApp2
                 mes = AddType3Delegate;
                 Console.WriteLine("Added");
             }
-
         }
         protected static void AddType1Delegate()
         {
-
             Console.WriteLine("Delegate message: Added el by VideoTehnick type");
         }
         protected static void AddType2Delegate()
-        {
-
-
+        { 
             Console.WriteLine("Delegate message: Added el by Detail type");
         }
         protected static void AddType3Delegate()
         {
-
-
             Console.WriteLine("Delegate message: Added el by AudioTehnick type");
         }
-
-
         public void RemoveEl()
         {
             Console.WriteLine("Enter ID of product for delete");
@@ -226,10 +213,6 @@ namespace ConsoleApp2
                 }
 
             }
-
-
-
-
             Console.WriteLine("Enter Name Of Product");
             string TmpName = Console.ReadLine();
             Console.WriteLine("Enter Name Of Brand");
@@ -282,13 +265,7 @@ namespace ConsoleApp2
             products[IndexOfId].Name = TmpName;
             products[IndexOfId].Price = TruePrice;
             Console.WriteLine("Added");
-
-
-
-
-
         }
-
         public void PrintSortedByName()
         {
             List<Product> SecondList = new List<Product>();
@@ -300,23 +277,18 @@ namespace ConsoleApp2
                 Console.WriteLine(item.ToString());
             }
             Helper.PrintLine();
-
         }
-
         public void PrintSortedByPrice()
         {
             List<Product> SecondList = new List<Product>();
-
             SecondList = products.OrderBy(q => q.Price).ToList();
             Helper.PrintLine();
-
             foreach (var item in SecondList)
             {
                 Console.WriteLine(item.ToString());
             }
             Helper.PrintLine();
         }
-
         public void PrintAllByType()
         {
             int Numtype = Helper.ReturnNumType();
@@ -358,10 +330,8 @@ namespace ConsoleApp2
                     }
                 }
                 Helper.PrintLine();
-
             }
         }
-
         public void SampleOfProductsByPriceXY()
         {
 
@@ -380,12 +350,7 @@ namespace ConsoleApp2
             {
                 Console.WriteLine("NULL");
             }
-
-
-
-
         }
-
         public void FindTypeProductAndPrint()
         {
             Console.WriteLine("Enter type of Product(Avalinle are AudioTehnick , VideoTehnick, Detail");
@@ -400,9 +365,6 @@ namespace ConsoleApp2
                 }
             }
             Helper.PrintLine();
-
-
-
         }
 
         public void FindByNameProductAndPrint()
@@ -419,11 +381,7 @@ namespace ConsoleApp2
                 }
             }
             Helper.PrintLine();
-
-
-
         }
-
         public void AvgPriceType()
         {
             int AllPriceAudioTehnick = 0;
@@ -432,7 +390,6 @@ namespace ConsoleApp2
             int AudioTehnickCount = 0;
             int VideoTehnickCount = 0;
             int DetailCount = 0;
-
             foreach (var item in products)
             {
                 if (item.GetType().Name == new AudioTehnick().GetType().Name)
@@ -448,14 +405,12 @@ namespace ConsoleApp2
                 else
                     AllPriceDetail += item.Price;
                 DetailCount++;
-
             }
             int AvgAudioTehnick =0; 
             if(AudioTehnickCount!=0)
             {
                 AvgAudioTehnick=AllPriceAudioTehnick / AudioTehnickCount;
             }           
-
             int AvgVideoTehnick =0;
             if(VideoTehnickCount!=0)
                {
@@ -469,12 +424,10 @@ namespace ConsoleApp2
             Console.WriteLine($"Type: AudioTehnick Average Price:{AvgAudioTehnick}");
             Console.WriteLine($"Type: VideoTehnick Average Price:{AvgVideoTehnick}");
             Console.WriteLine($"Type: Detail Average Price:{AvgDetail}");
-
         }
 
         public void ChangePricePlus()
         {
-
             Console.WriteLine($"Enter ID from 1 to {products.Count}");
             bool repeat = true;
             int RealID = 2;
@@ -527,13 +480,7 @@ namespace ConsoleApp2
                     break;
                 }
             }
-
-
-
-
-
         }
-
         public void ChangePriceMinus()
         {
             Console.WriteLine($"Enter ID from 1 to {products.Count}");

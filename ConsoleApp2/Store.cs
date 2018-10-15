@@ -14,7 +14,7 @@ namespace ConsoleApp2
         protected delegate void Message();
         public Store()
         {
-            //Message mes ;
+            Message Event ;
             int RandSize = Randomaiser.RandomIntSize();
             for (int id = 0; id < RandSize; id++)
             {
@@ -24,22 +24,22 @@ namespace ConsoleApp2
                 {
                     var temp = new AudioTehnick();
                     products.Add(temp);
-                   // mes = AudioMess;
+                    Event = AudioMess;
                 }
                 if (RandType == 1)
                 {
                     var temp = new VideoTehnick();
                     products.Add(temp);
-                   // mes = VideoMess;
+                    Event = VideoMess;
                 }
-                if (RandType == 2)
+                else
                 {
                     var temp = new Detail();
                     products.Add(temp);
-                 //   mes = DetailMess;
+                    Event = DetailMess;
                 }
-               // else mes = NULLMess;
-                //mes();
+
+                Event();
             }
 
         }
@@ -92,8 +92,7 @@ namespace ConsoleApp2
 
             if (Numtype == 1)
             {
-                var product = new AudioTehnick(TmpName, TmpBrand, TmpMaterial, TmpColor, TruePrice);
-                products.Add(product);
+               
                 mes = AddType1Delegate;
             }
             if (Numtype == 2)

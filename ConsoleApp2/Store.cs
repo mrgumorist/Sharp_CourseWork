@@ -648,9 +648,6 @@ namespace ConsoleApp2
                             products.Add(new Detail(ID, Brand, Color, Material, Name, Price));
 
                         }
-
-
-
                     }
                 }
             }
@@ -659,10 +656,5 @@ namespace ConsoleApp2
                 Console.WriteLine(E.Message);
             }
         }
-
-
-
-
-
     }
 }
